@@ -4,16 +4,22 @@
              x:Class="Learn.MauiPaymentUi.Views.ReceiptView"
              Title="{Binding Title}">
   <ScrollView>
-    <VerticalStackLayout>
+    <VerticalStackLayout Spacing="25"
+                         Padding="30,0"
+                         VerticalOptions="Center">
       <Label Text="Thank you for shopping!"
              FontAttributes="Bold"
              VerticalOptions="Center"
              HorizontalOptions="Center" />
 
-      <Label Text="Your order is being processed"
-             FontAttributes="Bold"
-             VerticalOptions="Center"
-             HorizontalOptions="Center" />
+      <StackLayout Orientation="Horizontal"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center">
+
+        <Label Text="Total Charge: $" FontAttributes="Bold" />
+
+        <Label Text="{Binding TotalPrice}" />
+      </StackLayout>
 
       <Label Text="Your order is being processed"
              FontAttributes="Italic"

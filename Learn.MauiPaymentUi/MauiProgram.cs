@@ -44,7 +44,6 @@ public static class MauiProgram
   {
     // Services
     containerRegistry.RegisterSingleton<IStoreService, StoreService>();
-    containerRegistry.RegisterSingleton<IPaymentService, PaymentService>();
 
     // Navigation
     containerRegistry

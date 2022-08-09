@@ -64,13 +64,13 @@ namespace Learn.MauiPaymentUi.ViewModels
       _storeService.Clear();
 
       if (Item1Checked)
-        _storeService.SelectItem("UPC-Item1", 10.00);
+        _storeService.AddItem(StoreItem.Hat, 1);
 
       if (Item3Checked)
-        _storeService.SelectItem("UPC-Item2", 20.00);
+        _storeService.AddItem(StoreItem.Shirt, 1);
 
       if (Item2Checked)
-        _storeService.SelectItem("UPC-Item3", 30.00);
+        _storeService.AddItem(StoreItem.Shoes, 1);
     }
 
     private void OnResetCart()

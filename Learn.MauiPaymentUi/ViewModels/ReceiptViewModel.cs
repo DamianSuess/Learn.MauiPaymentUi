@@ -37,7 +37,8 @@ namespace Learn.MauiPaymentUi.ViewModels
         TotalPrice = (string)parameters["total"];
       }
     }
-        private async void OnFinalizeOrderAsync()
+
+    private async void OnFinalizeOrderAsync()
     {
       _storeService.Clear();
 

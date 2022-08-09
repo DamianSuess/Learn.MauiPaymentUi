@@ -2,12 +2,14 @@
 {
   public interface IStoreService
   {
-    Dictionary<string, double> CartItems();
+    Dictionary<StoreItem, int> CartItems { get; }
+
+    int TotalCost { get; }
 
     /// <summary>Select item for purchase</summary>
-    /// <param name="itemCode">Item Code or UPC.</param>
-    /// <param name="price">Price of item.</param>
-    void SelectItem(string itemCode, double price);
+    /// <param name="storeItem">Item from the store.</param>
+    /// <param name="quantity">Quantity of item.</param>
+    void AddItem(StoreItem storeItem, int quantity);
 
     /// <summary>Clear cart.</summary>
     void Clear();

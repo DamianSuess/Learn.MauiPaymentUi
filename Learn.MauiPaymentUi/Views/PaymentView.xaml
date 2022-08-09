@@ -19,7 +19,7 @@
           HorizontalOptions="FillAndExpand"
           RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto"
           ColumnDefinitions="Auto,5*,5*">
-      
+
       <local:CreditCardView Grid.Row="0"
                             Grid.Column="0"
                             Grid.ColumnSpan="3" />
@@ -40,7 +40,7 @@
                  Keyboard="Numeric"
                  Text="{Binding CardNumber, Mode=TwoWay}"
                  Visual="Custom">
-            
+
             <Entry.Behaviors>
               <behaviors:FastEntryBehavior Mask="####-####-####-####"
                                            MaxLength="19" />
@@ -56,9 +56,9 @@
              Grid.Row="2"
              Grid.Column="0"
              Grid.ColumnSpan="2">
-        
+
         <StackLayout Orientation="Horizontal">
-          <Image Source="icon_date" HeightRequest="25" />
+          <Image Source="icon_date.png" HeightRequest="25" />
           <Entry HorizontalOptions="FillAndExpand"
                  Keyboard="Numeric"
                  Text="{Binding CardExpirationDate}"
@@ -77,9 +77,9 @@
              Margin="0,0,30,0"
              Grid.Row="2"
              Grid.Column="2">
-        
+
         <StackLayout Orientation="Horizontal">
-          <Image Source="icon_cvv" HeightRequest="25" />
+          <Image Source="icon_cvv.png" HeightRequest="25" />
           <Entry HorizontalOptions="FillAndExpand"
                  Keyboard="Numeric"
                  Text="{Binding CardCvv}"
@@ -130,7 +130,7 @@
                Grid.Column="0"
                Grid.ColumnSpan="3" />
 
-      <Button Text="Purchase for $200"
+      <Button Text="{Binding PurchaseText}"
               Command="{Binding CmdPurchase}"
               BackgroundColor="{Binding CardNumber, Converter={StaticResource CardColorConverter}}"
               CornerRadius="26"
@@ -142,16 +142,5 @@
               TextColor="White"
               Margin="30,0,30,30" />
     </Grid>
-    <!--
-      <VerticalStackLayout>
-      <Label Text="Payment View!"
-             VerticalOptions="Center"
-             HorizontalOptions="Center" />
-
-      <Button Text="Purchase"
-              Command="{Binding CmdPurchase}"
-              HorizontalOptions="Center" />
-    </VerticalStackLayout>
-      -->
   </ScrollView>
 </ContentPage>

@@ -45,6 +45,18 @@
         }
       }
 
+      if (Mask is not null && Mask.Length > 0 &&
+          entryText is not null && entryText.Length > 0)
+      {
+        var output = ProcessMask(entryText, oldString, newString, Mask);
+        if (output != entryText)
+        {
+          entryText = output;
+          entry.Text = entryText;
+          return;
+        }
+      }
+
       ////if (IsNumeric != null && IsNumeric == true && entryText.Length > 0)
       ////{
       ////  var output = xamarinIsNumeric.ProcessIsNumeric(entryText, oldString, newString);
@@ -77,17 +89,6 @@
       ////    return;
       ////  }
       ////}
-
-      if (Mask != null && Mask.Length > 0 && entryText.Length > 0)
-      {
-        var output = ProcessMask(entryText, oldString, newString, Mask);
-        if (output != entryText)
-        {
-          entryText = output;
-          entry.Text = entryText;
-          return;
-        }
-      }
 
       entry.Text = entryText;
     }

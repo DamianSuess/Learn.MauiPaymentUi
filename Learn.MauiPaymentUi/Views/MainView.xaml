@@ -32,13 +32,13 @@
               HorizontalOptions="Center">
 
           <CheckBox Grid.Row="0" IsChecked="{Binding Item1Checked}" />
-          <Label Grid.Row="0" Grid.Column="1" Text="Item 1" />
+          <Label Grid.Row="0" Grid.Column="1" Text="Hat - $10" />
 
           <CheckBox Grid.Row="1" IsChecked="{Binding Item2Checked}" />
-          <Label Grid.Row="1" Grid.Column="1" Text="Item 2" />
+          <Label Grid.Row="1" Grid.Column="1" Text="Shirt - $10" />
 
           <CheckBox Grid.Row="2" IsChecked="{Binding Item3Checked}" />
-          <Label Grid.Row="2" Grid.Column="1" Text="Item 3" />
+          <Label Grid.Row="2" Grid.Column="1" Text="Shoes - $10" />
         </Grid>
       </Border>
 
