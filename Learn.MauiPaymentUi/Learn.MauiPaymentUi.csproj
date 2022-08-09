@@ -90,7 +90,6 @@
 
 	<ItemGroup>
 	  <Folder Include="Controls\" />
-	  <Folder Include="Bahaviors\" />
 	</ItemGroup>
 
 </Project>

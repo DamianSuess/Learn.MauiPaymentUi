@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Learn.MauiPaymentUi.Views"
+             xmlns:behaviors="clr-namespace:Learn.MauiPaymentUi.Bahaviors"
              x:Class="Learn.MauiPaymentUi.Views.PaymentView"
              Title="{Binding Title}">
   <NavigationPage.TitleView>
@@ -41,8 +42,8 @@
                  Visual="Custom">
             
             <Entry.Behaviors>
-              <fastEntry:XamarinFastEntryBehaviour Mask="####-####-####-####"
-                                                   MaxLength="19" />
+              <behaviors:FastEntryBehavior Mask="####-####-####-####"
+                                           MaxLength="19" />
             </Entry.Behaviors>
           </Entry>
         </StackLayout>
@@ -63,8 +64,8 @@
                  Text="{Binding CardExpirationDate}"
                  Visual="Custom">
             <Entry.Behaviors>
-              <fastEntry:XamarinFastEntryBehaviour Mask="##/##"
-                                                   MaxLength="19" />
+              <behaviors:FastEntryBehavior Mask="##/##"
+                                           MaxLength="5" />
             </Entry.Behaviors>
           </Entry>
         </StackLayout>
@@ -84,8 +85,8 @@
                  Text="{Binding CardCvv}"
                  Visual="Custom">
             <Entry.Behaviors>
-              <fastEntry:XamarinFastEntryBehaviour Mask="###"
-                                                   MaxLength="3" />
+              <behaviors:FastEntryBehavior Mask="###"
+                                           MaxLength="3" />
             </Entry.Behaviors>
           </Entry>
         </StackLayout>

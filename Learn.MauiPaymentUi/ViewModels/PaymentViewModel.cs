@@ -7,6 +7,9 @@ namespace Learn.MauiPaymentUi.ViewModels
   {
     private readonly IPaymentService _paymentService;
     private readonly IStoreService _storeService;
+    private string _cardNumber;
+    private string _cardCvv;
+    private string _cardExpirationDate;
 
     public PaymentViewModel(INavigationService navService, IStoreService store, IPaymentService payment)
       : base(navService)
@@ -36,6 +39,24 @@ namespace Learn.MauiPaymentUi.ViewModels
         // TODO: Show warning prompt/dialog
       }
     });
+
+    public string CardNumber
+    {
+      get => _cardNumber;
+      set => SetProperty(ref _cardNumber, value);
+    }
+
+    public string CardCvv
+    {
+      get => _cardCvv;
+      set => SetProperty(ref _cardCvv, value);
+    }
+
+    public string CardExpirationDate
+    {
+      get => _cardExpirationDate;
+      set => SetProperty(ref _cardExpirationDate, value);
+    }
 
     /// <summary>After the page has been pushed onto the stack, and it is now visible.</summary>
     /// <param name="parameters">Navigation Parameters.</param>
