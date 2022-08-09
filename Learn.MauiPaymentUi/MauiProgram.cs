@@ -2,19 +2,6 @@
 
 public static class MauiProgram
 {
-	public static MauiApp CreateMauiApp()
-	{
-		var builder = MauiApp.CreateBuilder()
-			.UsePrismApp<App>(Configure)
-			.ConfigureFonts(fonts =>
-			{
-				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});
-
-		return builder.Build();
-	}
-
   public static void Configure(PrismAppBuilder builder)
   {
     // You may also do this in-line via lambdas without the need of static methods.
@@ -22,6 +9,19 @@ public static class MauiProgram
       .ConfigureModuleCatalog(OnConfigureModuleCatalog)
       .RegisterTypes(OnRegisterTypes)
       .OnAppStart($"{nameof(NavigationPage)}/{nameof(MainView)}");
+  }
+
+  public static MauiApp CreateMauiApp()
+  {
+    var builder = MauiApp.CreateBuilder()
+      .UsePrismApp<App>(Configure)
+      .ConfigureFonts(fonts =>
+      {
+        fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+        fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+      });
+
+    return builder.Build();
   }
 
   private static void OnConfigureModuleCatalog(IModuleCatalog moduleCatalog)
