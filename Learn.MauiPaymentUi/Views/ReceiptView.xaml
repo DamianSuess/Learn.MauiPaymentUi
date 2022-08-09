@@ -3,10 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Learn.MauiPaymentUi.Views.ReceiptView"
              Title="{Binding Title}">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+  <VerticalStackLayout>
+    <Label Text="Thank you for shopping!"
+           FontAttributes="Bold"
+           VerticalOptions="Center"
+           HorizontalOptions="Center" />
+
+    <Label Text="Your order is being processed"
+           FontAttributes="Bold"
+           VerticalOptions="Center"
+           HorizontalOptions="Center" />
+
+    <Label Text="Your order is being processed"
+           FontAttributes="Italic"
+           VerticalOptions="Center"
+           HorizontalOptions="Center" />
+    
+    <Button Text="Finished"
+            Command="{Binding CmdFinished}" />
+  </VerticalStackLayout>
 </ContentPage>

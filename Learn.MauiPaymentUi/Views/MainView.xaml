@@ -13,25 +13,44 @@
              HeightRequest="200"
              HorizontalOptions="Center" />
 
-      <Label Text="Hello, Prism World!"
+      <Label Text="Payments with Prism.MAUI!"
              SemanticProperties.HeadingLevel="Level1"
+             SemanticProperties.Description="Welcome to Prism for dot net Multi platform App UI"
              FontSize="32"
              HorizontalOptions="Center" />
 
-      <Label Text="Welcome to .NET Multi-platform App UI powered by Prism.MAUI"
+      <Label Text="Select items to purchse below"
              SemanticProperties.HeadingLevel="Level2"
-             SemanticProperties.Description="Welcome to Prism for dot net Multi platform App UI"
+             SemanticProperties.Description="Select items"
              FontSize="18"
              HorizontalOptions="Center" />
 
-      <Button Text="{Binding Text}"
-              SemanticProperties.Hint="Counts the number of times you click"
-              Command="{Binding CmdCounter}"
-              HorizontalOptions="Center" />
+      <Border>
+        <Grid ColumnDefinitions="Auto,*"
+              RowDefinitions="Auto,Auto,Auto"
+              HorizontalOptions="Center">
 
-      <Button Text="Navigate Away"
-              Command="{Binding CmdNavigate}"
-              HorizontalOptions="Center" />
+          <CheckBox Grid.Row="0" IsChecked="{Binding StoreItem1Checked}" />
+          <Label Grid.Row="0" Grid.Column="1" Text="Item 1" />
+
+          <CheckBox Grid.Row="1" IsChecked="{Binding StoreItem2Checked}" />
+          <Label Grid.Row="1" Grid.Column="1" Text="Item 2" />
+
+          <CheckBox Grid.Row="2" IsChecked="{Binding StoreItem3Checked}" />
+          <Label Grid.Row="2" Grid.Column="1" Text="Item 3" />
+        </Grid>
+      </Border>
+
+      <StackLayout Orientation="Horizontal"
+                   HorizontalOptions="Center">
+        <Button Text="Reset"
+                Command="{Binding CmdResetCart}"
+                HorizontalOptions="Center" />
+
+        <Button Text="Check Out"
+                Command="{Binding CmdCheckout}"
+                HorizontalOptions="Center" />
+      </StackLayout>
     </VerticalStackLayout>
   </ScrollView>
 </ContentPage>

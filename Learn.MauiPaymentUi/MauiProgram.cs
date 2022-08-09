@@ -43,6 +43,7 @@ public static class MauiProgram
   private static void OnRegisterTypes(IContainerRegistry containerRegistry)
   {
     // Services
+    containerRegistry.RegisterSingleton<IStoreService, StoreService>();
     containerRegistry.RegisterSingleton<IPaymentService, PaymentService>();
 
     // Navigation

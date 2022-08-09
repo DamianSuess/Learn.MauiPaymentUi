@@ -1,46 +1,88 @@
-﻿namespace Learn.MauiPaymentUi.ViewModels
+﻿using Learn.MauiPaymentUi.Services;
+using Learn.MauiPaymentUi.Views;
+
+namespace Learn.MauiPaymentUi.ViewModels
 {
   public class MainViewModel : ViewModelBase
   {
-    private int _counter;
-    private string _text;
+    private readonly IStoreService _storeService;
+    private bool _item1Checked;
+    private bool _item2Checked;
+    private bool _item3Checked;
 
-    public MainViewModel(ISemanticScreenReader screenReader, INavigationService navService)
+    public MainViewModel(ISemanticScreenReader screenReader, INavigationService navService, IStoreService storeService)
       : base(navService)
     {
       _screenReader = screenReader;
+      _storeService = storeService;
 
       Title = "Payment Sample";
-      Text = "Click Me!";
     }
 
-    public DelegateCommand CmdCounter => new DelegateCommand(OnCounter);
-
-    public DelegateCommand CmdNavigate => new DelegateCommand(() =>
+    public DelegateCommand CmdCheckout => new DelegateCommand(() =>
     {
-      ////string navTo = $"{nameof(NavigationPage)}/{nameof(MainView)}/{nameof(Page2View)}";
-      ////NavigationService.NavigateAsync(navTo);
+      GetCartItems();
+
+      NavigationService.NavigateAsync(nameof(PaymentView));
     });
 
-    public string Text
+    public DelegateCommand CmdResetCart => new DelegateCommand(OnResetCart);
+
+    public bool Item1Checked
     {
-      get => _text;
-      set => SetProperty(ref _text, value);
+      get => _item1Checked;
+      set => SetProperty(ref _item1Checked, value);
+    }
+
+    public bool Item2Checked
+    {
+      get => _item2Checked;
+      set => SetProperty(ref _item2Checked, value);
+    }
+
+    public bool Item3Checked
+    {
+      get => _item3Checked;
+      set => SetProperty(ref _item3Checked, value);
     }
 
     private ISemanticScreenReader _screenReader { get; }
 
-    private void OnCounter()
+    /// <summary>After the page has been pushed onto the stack, and it is now visible.</summary>
+    /// <param name="parameters">Navigation Parameters.</param>
+    public override void OnNavigatedTo(INavigationParameters parameters)
     {
-      _counter++;
+      // Navigated from ReceiptView
+      if (parameters.ContainsKey("reset"))
+      {
+        OnResetCart();
+      }
+    }
 
-      if (_counter == 1)
-        Text = "Clicked one time";
-      else
-        Text = $"Clicked {_counter} times";
+    private void GetCartItems()
+    {
+      _storeService.Clear();
 
-      // Update accessability screen reader. Ref: https://docs.microsoft.com/en-us/dotnet/maui/fundamentals/accessibility
-      _screenReader.Announce(Text);
+      if (Item1Checked)
+        _storeService.SelectItem("UPC-Item1", 10.00);
+
+      if (Item3Checked)
+        _storeService.SelectItem("UPC-Item2", 20.00);
+
+      if (Item2Checked)
+        _storeService.SelectItem("UPC-Item3", 30.00);
+    }
+
+    private void OnResetCart()
+    {
+      _storeService.Clear();
+
+      Item1Checked = false;
+      Item2Checked = false;
+      Item3Checked = false;
+
+      ////// Update accessability screen reader. Ref: https://docs.microsoft.com/en-us/dotnet/maui/fundamentals/accessibility
+      ////_screenReader.Announce(Text);
     }
   }
 }
