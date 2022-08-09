@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Learn.MauiPaymentUi.MainView">
+             x:Class="Learn.MauiPaymentUi.Views.MainView">
 
   <ScrollView>
     <VerticalStackLayout Spacing="25"
@@ -13,21 +13,24 @@
              HeightRequest="200"
              HorizontalOptions="Center" />
 
-      <Label Text="Hello, World!"
+      <Label Text="Hello, Prism World!"
              SemanticProperties.HeadingLevel="Level1"
              FontSize="32"
              HorizontalOptions="Center" />
 
-      <Label Text="Welcome to .NET Multi-platform App UI"
+      <Label Text="Welcome to .NET Multi-platform App UI powered by Prism.MAUI"
              SemanticProperties.HeadingLevel="Level2"
-             SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+             SemanticProperties.Description="Welcome to Prism for dot net Multi platform App UI"
              FontSize="18"
              HorizontalOptions="Center" />
 
-      <Button x:Name="CounterBtn"
-              Text="Click me"
+      <Button Text="{Binding Text}"
               SemanticProperties.Hint="Counts the number of times you click"
-              Clicked="OnCounterClicked"
+              Command="{Binding CmdCounter}"
+              HorizontalOptions="Center" />
+
+      <Button Text="Navigate Away"
+              Command="{Binding CmdNavigate}"
               HorizontalOptions="Center" />
     </VerticalStackLayout>
   </ScrollView>

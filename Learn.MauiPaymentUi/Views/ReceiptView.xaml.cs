@@ -1,8 +1,8 @@
 ﻿namespace Learn.MauiPaymentUi.Views;
 
-public partial class MainView : ContentPage
+public partial class ReceiptView : ContentPage
 {
-  public MainView()
+  public ReceiptView()
   {
     InitializeComponent();
   }

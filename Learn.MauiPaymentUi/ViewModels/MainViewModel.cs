@@ -1,15 +1,16 @@
 ﻿namespace Learn.MauiPaymentUi.ViewModels
 {
-  public class MainViewModel : BindableBase
+  public class MainViewModel : ViewModelBase
   {
-    private readonly INavigationService _nav;
     private int _counter;
     private string _text;
 
-    public MainViewModel(ISemanticScreenReader screenReader, INavigationService nav)
+    public MainViewModel(ISemanticScreenReader screenReader, INavigationService navService)
+      : base(navService)
     {
       _screenReader = screenReader;
-      _nav = nav;
+
+      Title = "Payment Sample";
       Text = "Click Me!";
     }
 
@@ -18,7 +19,7 @@
     public DelegateCommand CmdNavigate => new DelegateCommand(() =>
     {
       ////string navTo = $"{nameof(NavigationPage)}/{nameof(MainView)}/{nameof(Page2View)}";
-      ////_nav.NavigateAsync(navTo);
+      ////NavigationService.NavigateAsync(navTo);
     });
 
     public string Text
@@ -27,7 +28,6 @@
       set => SetProperty(ref _text, value);
     }
 
-    public string Title => "Prism Maui - Intro";
     private ISemanticScreenReader _screenReader { get; }
 
     private void OnCounter()

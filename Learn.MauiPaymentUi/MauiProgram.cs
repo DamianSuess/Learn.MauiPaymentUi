@@ -1,4 +1,8 @@
-﻿namespace Learn.MauiPaymentUi;
+﻿using Learn.MauiPaymentUi.Services;
+using Learn.MauiPaymentUi.ViewModels;
+using Learn.MauiPaymentUi.Views;
+
+namespace Learn.MauiPaymentUi;
 
 public static class MauiProgram
 {
@@ -8,7 +12,12 @@ public static class MauiProgram
     builder
       .ConfigureModuleCatalog(OnConfigureModuleCatalog)
       .RegisterTypes(OnRegisterTypes)
-      .OnAppStart($"{nameof(NavigationPage)}/{nameof(MainView)}");
+      .OnAppStart($"{nameof(NavigationPage)}/{nameof(MainView)}", ex =>
+      {
+        // Handle navigation issues
+        System.Diagnostics.Debug.WriteLine($"Error Loading MainView - {ex.Message}");
+        System.Diagnostics.Debugger.Break();
+      });
   }
 
   public static MauiApp CreateMauiApp()
@@ -33,8 +42,14 @@ public static class MauiProgram
 
   private static void OnRegisterTypes(IContainerRegistry containerRegistry)
   {
+    // Services
+    containerRegistry.RegisterSingleton<IPaymentService, PaymentService>();
+
+    // Navigation
     containerRegistry
-      .RegisterForNavigation<MainView>()                   // Auto-assign ViewModel
+      .RegisterForNavigation<MainView>()
+      .RegisterForNavigation<PaymentView, PaymentViewModel>()
+      .RegisterForNavigation<ReceiptView, ReceiptViewModel>()
       .RegisterInstance(SemanticScreenReader.Default);
   }
 }
