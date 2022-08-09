@@ -1,14 +1,156 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Learn.MauiPaymentUi.Views"
              x:Class="Learn.MauiPaymentUi.Views.PaymentView"
              Title="{Binding Title}">
-  <VerticalStackLayout>
-    <Label Text="Payment View!"
-           VerticalOptions="Center"
-           HorizontalOptions="Center" />
+  <NavigationPage.TitleView>
+    <Label Text="Payment"
+           HorizontalOptions="CenterAndExpand"
+           FontSize="17"
+           FontAttributes="Bold"
+           TextColor="{StaticResource PrimaryDark}" />
+  </NavigationPage.TitleView>
 
-    <Button Text="Purchase"
-            Command="{Binding CmdPurchase}" />
-  </VerticalStackLayout>
+  <ScrollView>
+    <Grid VerticalOptions="FillAndExpand"
+          ColumnSpacing="20"
+          HorizontalOptions="FillAndExpand"
+          RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+          ColumnDefinitions="Auto,5*,5*">
+      
+      <local:CreditCardView Grid.Row="0"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="3" />
+
+      <Frame HasShadow="false"
+                      Padding="10"
+                      BorderColor="{StaticResource LightColor}"
+                      Margin="30,30,30,10"
+                      Grid.Row="1"
+                      Grid.Column="0"
+                      Grid.ColumnSpan="3">
+        <StackLayout Orientation="Horizontal"
+                               Spacing="20">
+          <Image Source="{Binding CardNumber,Converter={StaticResource CardConverter}}"
+                 HeightRequest="30" />
+
+          <Entry HorizontalOptions="FillAndExpand"
+                 Keyboard="Numeric"
+                 Text="{Binding CardNumber, Mode=TwoWay}"
+                 Visual="Custom">
+            
+            <Entry.Behaviors>
+              <fastEntry:XamarinFastEntryBehaviour Mask="####-####-####-####"
+                                                   MaxLength="19" />
+            </Entry.Behaviors>
+          </Entry>
+        </StackLayout>
+      </Frame>
+
+      <Frame HasShadow="false"
+             Padding="10"
+             BorderColor="{StaticResource LightColor}"
+             Margin="30,0,0,0"
+             Grid.Row="2"
+             Grid.Column="0"
+             Grid.ColumnSpan="2">
+        
+        <StackLayout Orientation="Horizontal">
+          <Image Source="icon_date" HeightRequest="25" />
+          <Entry HorizontalOptions="FillAndExpand"
+                 Keyboard="Numeric"
+                 Text="{Binding CardExpirationDate}"
+                 Visual="Custom">
+            <Entry.Behaviors>
+              <fastEntry:XamarinFastEntryBehaviour Mask="##/##"
+                                                   MaxLength="19" />
+            </Entry.Behaviors>
+          </Entry>
+        </StackLayout>
+      </Frame>
+
+      <Frame HasShadow="false"
+             Padding="10"
+             BorderColor="{StaticResource LightColor}"
+             Margin="0,0,30,0"
+             Grid.Row="2"
+             Grid.Column="2">
+        
+        <StackLayout Orientation="Horizontal">
+          <Image Source="icon_cvv" HeightRequest="25" />
+          <Entry HorizontalOptions="FillAndExpand"
+                 Keyboard="Numeric"
+                 Text="{Binding CardCvv}"
+                 Visual="Custom">
+            <Entry.Behaviors>
+              <fastEntry:XamarinFastEntryBehaviour Mask="###"
+                                                   MaxLength="3" />
+            </Entry.Behaviors>
+          </Entry>
+        </StackLayout>
+      </Frame>
+
+      <CheckBox Color="LightGray"
+                WidthRequest="30"
+                HorizontalOptions="Start"
+                Margin="30,0,0,0"
+                Visual="Material"
+                Grid.Row="3"
+                Grid.Column="0" />
+
+      <Label Text="Remember me"
+             TextColor="{StaticResource PrimaryDark}"
+             FontSize="16"
+             VerticalOptions="Center"
+             Grid.Row="3"
+             Grid.Column="1"
+             Grid.ColumnSpan="2" />
+
+      <Button Text="or Pay with Paypal"
+              Grid.Row="4"
+              Grid.Column="0"
+              Grid.ColumnSpan="3"
+              BackgroundColor="White"
+              BorderColor="{StaticResource LightColor}"
+              TextColor="{StaticResource PrimaryDark}"
+              BorderWidth="1"
+              FontSize="18"
+              CornerRadius="25"
+              Padding="18"
+              Margin="30,0" />
+
+      <BoxView HorizontalOptions="FillAndExpand"
+               Color="{StaticResource Secondary}"
+               Visual="Default"
+               HeightRequest="1"
+               Margin="0,30"
+               Grid.Row="5"
+               Grid.Column="0"
+               Grid.ColumnSpan="3" />
+
+      <Button Text="Purchase for $200"
+              Command="{Binding CmdPurchase}"
+              BackgroundColor="{Binding CardNumber, Converter={StaticResource CardColorConverter}}"
+              CornerRadius="26"
+              FontSize="18"
+              Grid.Row="6"
+              Grid.Column="0"
+              Grid.ColumnSpan="3"
+              Padding="18"
+              TextColor="White"
+              Margin="30,0,30,30" />
+    </Grid>
+    <!--
+      <VerticalStackLayout>
+      <Label Text="Payment View!"
+             VerticalOptions="Center"
+             HorizontalOptions="Center" />
+
+      <Button Text="Purchase"
+              Command="{Binding CmdPurchase}"
+              HorizontalOptions="Center" />
+    </VerticalStackLayout>
+      -->
+  </ScrollView>
 </ContentPage>

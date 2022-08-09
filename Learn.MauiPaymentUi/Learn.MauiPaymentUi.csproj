@@ -49,6 +49,24 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\card_amex.png" />
+	  <None Remove="Resources\Images\card_dinersclub.png" />
+	  <None Remove="Resources\Images\card_discover.png" />
+	  <None Remove="Resources\Images\card_jcb.png" />
+	  <None Remove="Resources\Images\card_mastercard.png" />
+	  <None Remove="Resources\Images\card_unknown.png" />
+	  <None Remove="Resources\Images\card_visa.png" />
+	  <None Remove="Resources\Images\icon_chip.png" />
+	  <None Remove="Resources\Images\icon_cvv.png" />
+	  <None Remove="Resources\Images\icon_date.png" />
+	  <None Remove="Resources\Images\logo_amex.png" />
+	  <None Remove="Resources\Images\logo_dinersclub.png" />
+	  <None Remove="Resources\Images\logo_discover.png" />
+	  <None Remove="Resources\Images\logo_mastercard.png" />
+	  <None Remove="Resources\Images\logo_visa.png" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <PackageReference Include="Prism.DryIoc.Maui" Version="8.1.254-beta" />
 	</ItemGroup>
 
@@ -59,12 +77,20 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\CreditCardView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\PaymentView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ReceiptView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Controls\" />
+	  <Folder Include="Bahaviors\" />
 	</ItemGroup>
 
 </Project>

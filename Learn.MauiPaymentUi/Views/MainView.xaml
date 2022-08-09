@@ -25,18 +25,19 @@
              FontSize="18"
              HorizontalOptions="Center" />
 
-      <Border>
+      <Border HorizontalOptions="Center"
+              Padding="10,10">
         <Grid ColumnDefinitions="Auto,*"
               RowDefinitions="Auto,Auto,Auto"
               HorizontalOptions="Center">
 
-          <CheckBox Grid.Row="0" IsChecked="{Binding StoreItem1Checked}" />
+          <CheckBox Grid.Row="0" IsChecked="{Binding Item1Checked}" />
           <Label Grid.Row="0" Grid.Column="1" Text="Item 1" />
 
-          <CheckBox Grid.Row="1" IsChecked="{Binding StoreItem2Checked}" />
+          <CheckBox Grid.Row="1" IsChecked="{Binding Item2Checked}" />
           <Label Grid.Row="1" Grid.Column="1" Text="Item 2" />
 
-          <CheckBox Grid.Row="2" IsChecked="{Binding StoreItem3Checked}" />
+          <CheckBox Grid.Row="2" IsChecked="{Binding Item3Checked}" />
           <Label Grid.Row="2" Grid.Column="1" Text="Item 3" />
         </Grid>
       </Border>

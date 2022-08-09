@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StackLayout xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Learn.MauiPaymentUi.Views"
+             BackgroundColor="{StaticResource Primary}"
+             HorizontalOptions="FillAndExpand"
+             VerticalOptions="Start">
+
+  <Frame Margin="40,10,40,30"
+         Padding="20"
+         Visual="Material"
+         BackgroundColor="{Binding CardNumber, Converter={StaticResource CardColorConverter}}">
+
+    <Grid ColumnSpacing="30"
+          RowSpacing="0"
+          RowDefinitions="Auto,Auto,40,Auto,40"
+          ColumnDefinitions="Auto,*">
+
+      <Image Source="{Binding CardNumber, Converter={StaticResource CardLightConverter}}"
+             HeightRequest="40"
+             Grid.Row="0"
+             Grid.Column="1"
+             HorizontalOptions="EndAndExpand" />
+
+      <Label Text="Card Number"
+             LineBreakMode="TailTruncation"
+             FontSize="12"
+             TextColor="{StaticResource Accent}"
+             Grid.Row="1"
+             Grid.Column="0"
+             Grid.ColumnSpan="2" />
+
+      <Label Text="{Binding CardNumber}"
+             FontSize="20"
+             TextColor="{StaticResource Secondary}"
+             Grid.Row="2"
+             Grid.Column="0"
+             Grid.ColumnSpan="2" />
+
+      <Label Text="Expiration"
+             Margin="0,20,0,0"
+             FontSize="12"
+             TextColor="{StaticResource Accent}"
+             Grid.Row="3"
+             Grid.Column="0" />
+
+      <Label Text="{Binding CardExpirationDate}"
+             FontSize="20"
+             TextColor="{StaticResource Secondary}"
+             Grid.Row="4"
+             Grid.Column="0" />
+
+      <Label Text="Cvv"
+             Margin="0,20,0,0"
+             FontSize="12"
+             TextColor="{StaticResource Accent}"
+             Grid.Row="3"
+             Grid.Column="1" />
+
+      <Label Text="{Binding CardCvv}"
+             FontSize="20"
+             TextColor="{StaticResource Secondary}"
+             Grid.Row="4"
+             Grid.Column="1" />
+    </Grid>
+  </Frame>
+</StackLayout>
