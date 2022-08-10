@@ -1,8 +1,8 @@
 # Sample Payment App UI
 
-As the title says, this is a sample credit card payment screen written using .NET MAUI and the [Prism Library](https://github.com/PrismLibrary) which runs on Windows, Android, iOS, and Tizen.
+As the title says, this is a sample credit card payment screen is written using .NET MAUI and the [Prism Library](https://github.com/PrismLibrary) which runs on Windows, Android, iOS, and Tizen.
 
-The sample makes use of [Prism.MAUI](https://github.com/PrismLibrary/Prism.Maui) for navigation and passing information and borrows concepts from the CrossGeeks' [Xamarin.Forms sample](https://github.com/CrossGeeks/PaymentUISample).
+The sample app leverages [Prism.MAUI](https://github.com/PrismLibrary/Prism.Maui) for its easy-to-use Navigation Service for passing information and Dependency Injection with DryIOC. The sample also makes use of XAML Behaviors, dynamic styling, and shared PNG resources.
 
 <p align="center"><img src="SampleCards.gif" width="400" /></p>
 
