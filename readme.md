@@ -12,3 +12,4 @@ The sample app leverages [Prism.MAUI](https://github.com/PrismLibrary/Prism.Maui
 * [.NET MAUI Good Looking UI](https://github.com/jsuarezruiz/dotnet-maui-showcase)
 * [Xamarin.Forms Good Looking UI](https://github.com/jsuarezruiz/xamarin-forms-goodlooking-UI)
   * [Xamarin.Forms Payment UI Sample](https://github.com/CrossGeeks/PaymentUISample)
+* Snppts [GitHub](https://github.com/snpptsdev/snppts) - [Website](https://www.snppts.dev/)
