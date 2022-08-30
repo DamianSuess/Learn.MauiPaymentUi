@@ -22,8 +22,16 @@ public static class MauiProgram
 
   public static MauiApp CreateMauiApp()
   {
+    // NOTE:
+    //  Previously, Prism.Maui used:
+    //    .UsePrismApp<App>(prism => {... })
+    //  Now, you define it as follows
+    //    .UseMauiApp<App>()
+    //    .UsePrism(prism => { ... })
+
     var builder = MauiApp.CreateBuilder()
-      .UsePrismApp<App>(Configure)
+      .UseMauiApp<App>()
+      .UsePrism(Configure)
       .ConfigureFonts(fonts =>
       {
         fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

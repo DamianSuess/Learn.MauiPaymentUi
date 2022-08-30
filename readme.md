@@ -4,6 +4,17 @@ As the title says, this is a sample credit card payment screen is written using 
 
 The sample app leverages [Prism.MAUI](https://github.com/PrismLibrary/Prism.Maui) for its easy-to-use Navigation Service for passing information and Dependency Injection with DryIOC. The sample also makes use of XAML Behaviors, dynamic styling, and shared PNG resources.
 
+**Prism.Maui update:**
+
+```cs
+// Previously, Prism.Maui used:
+.UsePrismApp<App>(prism => {... })
+
+// Now, you define it as follows
+.UseMauiApp<App>()
+.UsePrism(prism => { ... })
+```
+
 <p align="center"><img src="SampleCards.gif" width="400" /></p>
 
 ## References
