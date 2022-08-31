@@ -10,6 +10,10 @@ public static class MauiProgram
   {
     // You may also do this in-line via lambdas without the need of static methods.
     builder
+      ////.ConfigureServices(services =>
+      ////{  // Register services with the IServiceCollection
+      ////  services.AddSingleton<IFoo, Foo>()
+      ////})
       .ConfigureModuleCatalog(OnConfigureModuleCatalog)
       .RegisterTypes(OnRegisterTypes)
       .OnAppStart($"{nameof(NavigationPage)}/{nameof(MainView)}", ex =>
