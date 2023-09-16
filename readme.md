@@ -8,6 +8,8 @@ Featured On:
 * [.NET MAUI Good Looking UI](https://github.com/jsuarezruiz/dotnet-maui-showcase)
 * [Snppts.dev - Credit Card Payment UI](https://www.snppts.dev/snippet/credit-card-payment-ui)
 
+![snppts-logo](https://raw.githubusercontent.com/DamianSuess/Learn.MauiPaymentUi/master/snppts-logo.jpg)
+
 ### Prism.Maui update:
 
 ```cs
