@@ -10,6 +10,9 @@ Featured On:
 
 ![snppts-logo](https://raw.githubusercontent.com/DamianSuess/Learn.MauiPaymentUi/master/snppts-logo.jpg)
 
+Author: [Damian Suess](https://www.linkedin.com/in/damiansuess/)<br />
+Website: [suesslabs.com](https://suesslabs.com)
+
 ### Prism.Maui update:
 
 ```cs
